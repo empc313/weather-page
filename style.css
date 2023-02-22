@@ -1,0 +1,65 @@
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(255, 255, 255);
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: aliceblue;
+}
+
+.header-bar {
+  position: relative;
+  width: 53%;
+  height: 52px;
+  border: 12px solid transparent;
+  border-top: 10px solid #fffa;
+  border-left: 10px solid aliceblue;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0, 0.25) inset;
+}
+
+body {
+  background-color: rgb(202, 220, 255);
+  color: #fffa;
+}
+
+button {
+  font-style: oblique;
+  padding: 1px;
+  --c: aliceblue;
+  box-shadow: 0 0 0 3px inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+button:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+button:active {
+  box-shadow: 0 0 0 inset darkgrey;
+  background-color: var(--c);
+  color: aliceblue;
+}
+button {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 1px 9px;
+  border: none;
+}
+
+#search-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1100px;
+}

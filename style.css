@@ -1,8 +1,9 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 body {
-  background-color: aliceblue;
+  background-color: rgb(202, 220, 255);
 }
 
 button {
@@ -27,4 +28,17 @@ button:active {
   box-shadow: 0 0 0 inset darkgrey;
   background-color: var(--c);
   color: aliceblue;
+}
+button {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 1px 9px;
+  border: none;
+}
+
+.card {
+  height: 200px;
+  width: 155px;
+  background-color: whitesmoke;
+  color: blue;
 }

@@ -45,6 +45,7 @@ function getApi() {
     .then(function (data) {
       console.log(data);
       //Current Weather Conditions
+      //for Loop iterates through today and the next four days. Provides weatherCondition, temp, windSpeed, and humidity vars for each "card"
         for (var i=0; i<=5; i++){
             var day = $("#date-"+i)
             day = data.list

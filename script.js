@@ -1,11 +1,30 @@
 // Set global variables,Open Weather Maps API Key
 var city = "Denver"
 var APIKey = "22c9b7b3a4e8a1f95ebc91f63d87daea"
+
+var searchEl = $("#search-form")
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" +APIKey;
-var weatherConditions
-var mainWeatherEl = $("#weatherConditions")
+var weatherEl = $("#weatherConditions")
 var subMainWeatherEl = $("#subDescription")
 var icon = $(".icon")
+
+
+
+
+function userInputCitySubmit(event){
+    event.preventDefault();
+var userCityInput = $('input[name="city-input"]').val();
+
+
+city = userCityInput;
+queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" +APIKey;
+console.log(city)
+getApi()
+}
+
+
+console.log(city)
+
 
 function getApi(){
     fetch(queryURL)
@@ -24,7 +43,7 @@ function getApi(){
         
         var weatherDataDescription = weatherConditionArray.description
         console.log(weatherDataDescription)
-        mainWeatherEl.append("<h3>"+weatherDataDescription+"</h3>")
+        weatherEl.empty().append(weatherDataDescription)
 
     
         icon = weatherConditionArray.icon
@@ -40,3 +59,5 @@ function getApi(){
 
 }
 getApi()
+
+searchEl.on("submit",userInputCitySubmit);

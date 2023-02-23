@@ -63,6 +63,11 @@ button {
   flex-direction: column;
   margin-right: 1100px;
 }
+#search-input {
+  width: 100px;
+  color: #000;
+
+}
 
 .weatherConditionsContainer{
   height: 200px;

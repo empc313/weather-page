@@ -1,6 +1,6 @@
 // Set global variables,Open Weather Maps API Key
-var city = "Denver"
-var APIKey = "22c9b7b3a4e8a1f95ebc91f63d87daea"
+var city = "Denver";
+var APIKey = "22c9b7b3a4e8a1f95ebc91f63d87daea";
 
 var searchEl = $("#search-form")
 var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&exclude=current,hourly,minutely,alerts"  +"&appid=" +APIKey +"&cnt=5";
@@ -8,12 +8,11 @@ var weatherEl = $("#weatherConditions")
 var subMainWeatherEl = $("#subDescription")
 var icon = $(".icon")
 
+function userInputCitySubmit(event) {
+  event.preventDefault();
+  var userCityInput = $('input[name="city-input"]').val();
 
 
-
-function userInputCitySubmit(event){
-    event.preventDefault();
-var userCityInput = $('input[name="city-input"]').val();
 
 
 city = userCityInput;
@@ -22,19 +21,17 @@ console.log(city)
 getApi()
 }
 
+console.log(city);
 
-console.log(city)
-
-
-function getApi(){
-    fetch(queryURL)
+function getApi() {
+  fetch(queryURL)
     .then(function (response) {
-        console.log(response.status) 
-            if(response.status == 404){
-                var errorDisplay = response.status
-                console.log(errorDisplay)
-            }
-        return response.json()
+      console.log(response.status);
+      if (response.status == 404) {
+        var errorDisplay = response.status;
+        console.log(errorDisplay);
+      }
+      return response.json();
     })
     .then(function (data) {
         console.log(data);
@@ -77,15 +74,7 @@ function getApi(){
             
         
     });
-
-
- 
-
-
-
-
-
 }
-getApi()
+getApi();
 
-searchEl.on("click",userInputCitySubmit);
+searchEl.on("click", userInputCitySubmit);

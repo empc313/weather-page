@@ -44,13 +44,24 @@ function getApi(){
         var weatherConditions = todayArray.weather[0].main
         console.log(weatherConditions)
         //current temps
-        var currentTemp = todayArray.main[0].temp
+        //note: currentTemp represents the temp at 21:00
+        var currentTemp = todayArray.main.temp
+        console.log(currentTemp)
+        var currentTempHigh = todayArray.main.temp_max
+        var currentTempLow = todayArray.main.temp_min
+        console.log(currentTempHigh)
+        console.log(currentTempLow)
+        //humidity
+        var humidity = todayArray.main.humidity
+        console.log(humidity)
+        //wind speed
+        var wind = todayArray.wind.speed
+        console.log(wind)
 
         
     
-        var weatherDataDescription = weatherArray.description
-        console.log(weatherDataDescription)
-        weatherEl.empty().append(weatherDataDescription)
+        
+        weatherEl.empty().append(weatherConditions)
 
        
         // var currentTemp = mainArray.temp

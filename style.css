@@ -1,30 +1,9 @@
 * {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: rgb(255, 255, 255);
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: aliceblue;
-}
-
-.header-bar {
-  position: relative;
-  width: 53%;
-  height: 52px;
-  border: 12px solid transparent;
-  border-top: 10px solid #fffa;
-  border-left: 10px solid aliceblue;
-  box-shadow: 4px 4px 5px rgb(0, 0, 0, 0.25) inset;
 }
 
 body {
   background-color: rgb(202, 220, 255);
-  color: #fffa;
 }
 
 button {
@@ -57,21 +36,9 @@ button {
   border: none;
 }
 
-#search-form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-right: 1100px;
-}
-#search-input {
-  width: 100px;
-  color: #000;
-
-}
-
-.weatherConditionsContainer{
+.card {
   height: 200px;
-  width: 200px;
-  background-color: rgb(124, 153, 178);
-  color: rgb(112, 96, 128);
+  width: 155px;
+  background-color: whitesmoke;
+  color: blue;
 }

@@ -42,3 +42,46 @@ button {
   background-color: whitesmoke;
   color: blue;
 }
+
+:root {
+  --zoomAmount: 140%;
+  --tint: DeepSkyBlue;
+  --accent: dodgerblue;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Libre Bodoni", serif;
+}
+
+
+figure figcaption h1 {
+  position: relative;
+  font-size: 110pt;
+  line-height: 110pt;
+  color: white;
+  text-shadow: 1px 1px 0px black, 2px 2px 0px rgb(22, 0, 111), 3px 3px 0px rgb(22, 0, 111);
+  font-weight: 800;
+  margin: 0;
+  overflow: hidden;
+  padding: 15px;
+
+}
+
+body > header:hover ~ figure figcaption h1::after {
+  right: 0;
+  transition: all 1s ease;
+}
+
+body > header,
+body > header > div {
+  background: url("https://picsum.photos/id/872/3840/2160");
+  background-size: 100%;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  transition: all 0.5s ease-in-out;
+}

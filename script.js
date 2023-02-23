@@ -3,7 +3,7 @@ var city = "Denver"
 var APIKey = "22c9b7b3a4e8a1f95ebc91f63d87daea"
 
 var searchEl = $("#search-form")
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" +APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&exclude=current,hourly,minutely,alerts"  +"&appid=" +APIKey +"&cnt=5";
 var weatherEl = $("#weatherConditions")
 var subMainWeatherEl = $("#subDescription")
 var icon = $(".icon")
@@ -17,7 +17,7 @@ var userCityInput = $('input[name="city-input"]').val();
 
 
 city = userCityInput;
-queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" +APIKey;
+queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" +APIKey;
 console.log(city)
 getApi()
 }
@@ -38,15 +38,32 @@ function getApi(){
     })
     .then(function (data) {
         console.log(data);
-        var weatherConditionArray = (data.weather[0])
-        console.log(weatherConditionArray)
+        //Current Weather Conditions
+        var todayArray = (data.list[0])
+        console.log(todayArray)
+        var weatherConditions = todayArray.weather[0].main
+        console.log(weatherConditions)
+        //current temps
+        var currentTemp = todayArray.main[0].temp
+
         
-        var weatherDataDescription = weatherConditionArray.description
+    
+        var weatherDataDescription = weatherArray.description
         console.log(weatherDataDescription)
         weatherEl.empty().append(weatherDataDescription)
 
+       
+        // var currentTemp = mainArray.temp
+        // console.log(currentTemp)
+        // var highTemp = mainArray.temp_max
+        // console.log(highTemp)
     
-        icon = weatherConditionArray.icon
+        // icon = weatherArray.icon
+
+
+        //Forecast for the next five days//
+        //fetch request forecast, not weather
+            
         
     });
 
@@ -60,4 +77,4 @@ function getApi(){
 }
 getApi()
 
-searchEl.on("submit",userInputCitySubmit);
+searchEl.on("click",userInputCitySubmit);

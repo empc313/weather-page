@@ -3,6 +3,7 @@ var city = "Denver";
 var APIKey = "22c9b7b3a4e8a1f95ebc91f63d87daea";
 
 var searchEl = $("#search-form");
+var searchBtn = $("#search-button");
 var queryURL =
   "https://api.openweathermap.org/data/2.5/weather?q=" +
   city +
@@ -52,4 +53,4 @@ function getApi() {
 }
 getApi();
 
-searchEl.on("click", userInputCitySubmit);
+searchBtn.on("click", userInputCitySubmit);

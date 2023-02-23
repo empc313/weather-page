@@ -63,3 +63,10 @@ button {
   flex-direction: column;
   margin-right: 1100px;
 }
+
+.weatherConditionsContainer{
+  height: 200px;
+  width: 200px;
+  background-color: rgb(124, 153, 178);
+  color: rgb(112, 96, 128);
+}

@@ -1,4 +1,6 @@
 # weather-page
+https://empc313.github.io/weather-page/
+<img width="1511" alt="Screenshot 2023-02-24 at 3 17 38 PM" src="https://user-images.githubusercontent.com/122828454/221304842-1d7858bb-3bf8-4ac7-b43b-187af693be64.png">
 
 ## DESCRIPTION
 

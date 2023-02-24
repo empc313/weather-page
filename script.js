@@ -61,7 +61,7 @@ function getApi() {
         console.log(weatherConditions);
         $("#forecast-" + i)
           .empty()
-          .append(weatherConditions);
+          .append("Forecast: " + weatherConditions);
 
 //DATE//
         var date = day[i].dt_txt;
@@ -74,20 +74,20 @@ function getApi() {
         console.log(currentTemp);
         $("#temp-" + i)
           .empty()
-          .append(currentTemp+"°");
-//WIND//
+          .append("Temperature: " + currentTemp + " F");
+        //WIND//
         var windSpeed = day[i].wind.speed;
         console.log(windSpeed);
         $("#windspeed-" + i)
           .empty()
-          .append(windSpeed+"mph");
+          .append("Wind Speed: " + windSpeed + " mph");
 
 //HUMIDITY//
         var humidity = day[i].main.humidity;
         console.log(humidity);
         $("#humidity-" + i)
           .empty()
-          .append(humidity+"%");
+          .append("Humidity: " + humidity + "%");
 
 //ICON//
 

@@ -10,8 +10,8 @@ var queryURL =
   "&units=imperial" +
   "&exclude=current,hourly,minutely,alerts" +
   "&appid=" +
-  APIKey 
-
+  APIKey +
+  "&cnt=6";
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
@@ -23,13 +23,13 @@ function userInputCitySubmit(event) {
 
   city = userCityInput;
   queryURL =
-  "https://api.openweathermap.org/data/2.5/forecast?q=" +
-  city +
-  "&units=imperial" +
-  "&exclude=current,hourly,minutely,alerts" +
-  "&appid=" +
-  APIKey 
-
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&units=imperial" +
+    "&exclude=hourly,minutely,alerts" +
+    "&appid=" +
+    APIKey +
+    "&cnt=6";
 
   getApi();
 }
@@ -48,28 +48,22 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-      for (var i = 0; i <= 40; i++) {
+      for (var i = 0; i <= 6; i++) {
         day = data.list;
 
-//CITY//
+        //CITY//
         var cityName = data.city.name;
         console.log(cityName);
         $("#cityname").empty().append(cityName);
 
-//FORECASTS//
+        //FORECASTS//
         var weatherConditions = day[i].weather[0].main;
         console.log(weatherConditions);
         $("#forecast-" + i)
           .empty()
           .append("Forecast: " + weatherConditions);
 
-//DATE//
-        var date = day[i].dt_txt;
-        console.log(date)
-        $("#date-"+i).empty().append(date)
-       
-
-//TEMP//
+        //TEMP//
         var currentTemp = day[i].main.temp;
         console.log(currentTemp);
         $("#temp-" + i)
@@ -82,14 +76,14 @@ function getApi() {
           .empty()
           .append("Wind Speed: " + windSpeed + " mph");
 
-//HUMIDITY//
+        //HUMIDITY//
         var humidity = day[i].main.humidity;
         console.log(humidity);
         $("#humidity-" + i)
           .empty()
           .append("Humidity: " + humidity + "%");
 
-//ICON//
+        //ICON//
 
         var iconcode = day[i].weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";

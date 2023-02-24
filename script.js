@@ -26,15 +26,18 @@ function userInputCitySubmit(event) {
 
   city = userCityInput;
   queryURL =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    city +
-    "&appid=" +
-    APIKey;
-  console.log(city);
+  "https://api.openweathermap.org/data/2.5/forecast?q=" +
+  city +
+  "&units=imperial" +
+  "&exclude=current,hourly,minutely,alerts" +
+  "&appid=" +
+  APIKey +
+  "&cnt=6";
+
   getApi();
 }
 
-console.log(city);
+
 
 function getApi() {
   fetch(queryURL)
@@ -51,26 +54,32 @@ function getApi() {
       //Current Weather Conditions
       //for Loop iterates through today and the next four days. Provides weatherCondition, temp, windSpeed, and humidity vars for each "card"
         for (var i=0; i<=6; i++){
-            // var day = $("#date-"+i)
+            
             day = data.list
            
-            //we need vars for:
-                //forecast, humidity, wind, temp
+//CITY//
+            var cityName = data.city.name
+            console.log(cityName)
+            $("#cityname").empty().append(cityName)
+            
             var weatherConditions = day[i].weather[0].main
                 console.log(weatherConditions)
-                $("date-0").append("<p>weatherConditions</p>")
-                console.log("ok")
+                $("#forecast-"+i).empty().append(weatherConditions)
                 
+                
+//TEMP//
             var currentTemp = day[i].main.temp
                 console.log(currentTemp)
+                $("#temp-"+i).empty().append(currentTemp)
+//WIND//
             var windSpeed = day[i].wind.speed
                 console.log(windSpeed)
+                $("#windspeed-"+ i).empty().append(windSpeed)
                 
             var humidity = day[i].main.humidity
                 console.log(humidity)
 
 
-                $("#windspeed-"+ i).append(windSpeed)
 
                 
 

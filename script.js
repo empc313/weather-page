@@ -10,8 +10,8 @@ var queryURL =
   "&units=imperial" +
   "&exclude=current,hourly,minutely,alerts" +
   "&appid=" +
-  APIKey +
-  "&cnt=6";
+  APIKey 
+
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
@@ -31,8 +31,8 @@ function userInputCitySubmit(event) {
   "&units=imperial" +
   "&exclude=hourly,minutely,alerts" +
   "&appid=" +
-  APIKey +
-  "&cnt=6";
+  APIKey 
+
 
   getApi();
 }
@@ -53,7 +53,7 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-                for (var i=0; i<=6; i++){
+                for (var i=0; i<=36; i=i+6){
             
                 day = data.list
                
@@ -62,6 +62,11 @@ function getApi() {
                 console.log(cityName)
                 $("#cityname").empty().append(cityName)
                 
+//DATE//
+                var date = day[i].dt_txt
+                console.log(date)
+                $("#date-"+i).empty().append(date)
+
 //FORECASTS//
                 var weatherConditions = day[i].weather[0].main
                     console.log(weatherConditions)

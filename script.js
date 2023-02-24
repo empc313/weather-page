@@ -15,10 +15,7 @@ var queryURL =
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
-var windSpeed
-
-
-
+var windSpeed;
 
 function userInputCitySubmit(event) {
   event.preventDefault();
@@ -37,8 +34,6 @@ function userInputCitySubmit(event) {
   getApi();
 }
 
-
-
 function getApi() {
   fetch(queryURL)
     .then(function (response) {
@@ -53,55 +48,49 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-                for (var i=0; i<=36; i=i+6){
-            
-                day = data.list
-               
-//CITY//
-                var cityName = data.city.name
-                console.log(cityName)
-                $("#cityname").empty().append(cityName)
-                
-//DATE//
-                var date = day[i].dt_txt
-                console.log(date)
-                $("#date-"+i).empty().append(date)
+      for (var i = 0; i <= 6; i++) {
+        day = data.list;
 
-//FORECASTS//
-                var weatherConditions = day[i].weather[0].main
-                    console.log(weatherConditions)
-                    $("#forecast-"+i).empty().append(weatherConditions)
-                    
-                    
-//TEMP//
-                var currentTemp = day[i].main.temp
-                    console.log(currentTemp)
-                    $("#temp-"+i).empty().append(currentTemp)
-//WIND//
-                var windSpeed = day[i].wind.speed
-                    console.log(windSpeed)
-                    $("#windspeed-"+ i).empty().append(windSpeed)
-                    
-//HUMIDITY//
-                var humidity = day[i].main.humidity
-                    console.log(humidity)
-                    $("#humidity-"+ i).empty().append(humidity);
+        //CITY//
+        var cityName = data.city.name;
+        console.log(cityName);
+        $("#cityname").empty().append(cityName);
 
-    
-//ICON//
-    
-    
-                var iconcode = day[i].weather[0].icon
-                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-                $("#icon-"+i).attr("src",iconurl)
-                console.log(iconurl)
-            }
+        //FORECASTS//
+        var weatherConditions = day[i].weather[0].main;
+        console.log(weatherConditions);
+        $("#forecast-" + i)
+          .empty()
+          .append(weatherConditions);
 
-        }
+        //TEMP//
+        var currentTemp = day[i].main.temp;
+        console.log(currentTemp);
+        $("#temp-" + i)
+          .empty()
+          .append(currentTemp);
+        //WIND//
+        var windSpeed = day[i].wind.speed;
+        console.log(windSpeed);
+        $("#windspeed-" + i)
+          .empty()
+          .append(windSpeed);
 
+        //HUMIDITY//
+        var humidity = day[i].main.humidity;
+        console.log(humidity);
+        $("#humidity-" + i)
+          .empty()
+          .append(humidity);
 
+        //ICON//
 
-    )
+        var iconcode = day[i].weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        $("#icon-" + i).attr("src", iconurl);
+        console.log(iconurl);
+      }
+    });
 }
 getApi();
 

@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: rgb(202, 220, 255);
+  background: linear-gradient(90deg, #a0a0d1 10%, #90c3e8 90%);
 }
 
 button {
@@ -37,10 +37,11 @@ button {
 }
 
 .card {
-  height: 200px;
+  height: 250px;
   width: 155px;
   background-color: whitesmoke;
   color: blue;
+  background: rgb(199, 225, 234);
 }
 
 :root {

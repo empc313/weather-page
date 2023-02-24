@@ -1,6 +1,18 @@
 * {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Libre Bodoni", serif;
+}
+
+:root {
+  --zoomAmount: 140%;
+  --tint: DeepSkyBlue;
+  --accent: rgb(47, 145, 243);
+}
 
 body {
   background: linear-gradient(90deg, #a0a0d1 10%, #90c3e8 90%);
@@ -36,25 +48,19 @@ button {
   border: none;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
-  height: 250px;
-  width: 155px;
+  display: flex;
+  margin: 2px;
+  padding: 2px;
+  width: 150px;
   background-color: whitesmoke;
   color: blue;
   background: rgb(199, 225, 234);
-}
-
-:root {
-  --zoomAmount: 140%;
-  --tint: DeepSkyBlue;
-  --accent: rgb(47, 145, 243);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  font-family: "Libre Bodoni", serif;
 }
 
 figure figcaption h1 {

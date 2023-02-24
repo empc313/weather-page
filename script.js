@@ -48,7 +48,7 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-      for (var i = 0; i <= 40; i=i+5) {
+      for (var i = 0; i <= 40; i++) {
         day = data.list;
 
 //CITY//

@@ -6,12 +6,11 @@ var searchEl = $("#search-form");
 var searchBtn = $("#search-button");
 var queryURL =
   "https://api.openweathermap.org/data/2.5/forecast?q=" +
-  city +
+   city +
   "&units=imperial" +
   "&exclude=current,hourly,minutely,alerts" +
   "&appid=" +
-  APIKey +
-  "&cnt=6";
+  APIKey;
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
@@ -34,8 +33,7 @@ function userInputCitySubmit(userCityInput) {
     "&units=imperial" +
     "&exclude=hourly,minutely,alerts" +
     "&appid=" +
-    APIKey +
-    "&cnt=6";
+    APIKey;
 
   getApi();
 }
@@ -74,6 +72,45 @@ function createButton(city) {
 //
 //
 
+//WEATHER NOW//
+function getApiForCurrentWeather(){
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial"+"&exclude=current,hourly,minutely,alerts" +
+    "&appid=" +
+    APIKey)
+    .then(function (response) {
+        console.log(response.status);
+        if (response.status == 404) {
+            var errorDisplay = response.status;
+            console.log(errorDisplay)
+        }
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        var currentConditions = data.weather[0].description
+        console.log(currentConditions)
+        $("#forecast-main").empty().append("Weather:"+ currentConditions)
+
+        var temp = data.main.temp
+        console.log(temp)
+        $("#temp-main").empty().append("Temp:"+temp)
+
+        var windSpeed = data.wind.speed
+        console.log(windSpeed)
+        $("#wind-main").empty().append("Wind Speed:" + windSpeed)
+
+        var humidity = data.main.humidity
+        console.log(humidity)
+        $("#humidity-main").empty().append("Humidity:" + humidity)
+
+        var iconcode = data.weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        $("#icon-main").attr("src", iconurl);
+    })
+
+}
+getApiForCurrentWeather()
+
 function getApi() {
   fetch(queryURL)
     .then(function (response) {
@@ -88,8 +125,14 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-      for (var i = 0; i <= 6; i++) {
-        day = data.list;
+      var filteredDayList = data.list.filter(function(obj){
+        return obj.dt_txt.split(" ")[1] === "12:00:00"
+      })
+      console.log(filteredDayList)
+      for (var i = 0; i < filteredDayList.length; i++) {
+        // for (var i = 0; i <= 40; i=i+8) {
+       // day = data.list;
+        day = filteredDayList;
 
         //CITY//
         var cityName = data.city.name;
@@ -102,6 +145,12 @@ function getApi() {
         $("#forecast-" + i)
           .empty()
           .append("Forecast: " + weatherConditions);
+        console.log("item number:" +i)
+        
+        //DATE//
+        var date = day[i].dt_txt
+        console.log(date)
+        $("#date-"+i).append(date)
 
         //TEMP//
         var currentTemp = day[i].main.temp;

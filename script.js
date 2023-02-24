@@ -29,7 +29,7 @@ function userInputCitySubmit(event) {
   "https://api.openweathermap.org/data/2.5/forecast?q=" +
   city +
   "&units=imperial" +
-  "&exclude=current,hourly,minutely,alerts" +
+  "&exclude=hourly,minutely,alerts" +
   "&appid=" +
   APIKey +
   "&cnt=6";
@@ -62,6 +62,7 @@ function getApi() {
                 console.log(cityName)
                 $("#cityname").empty().append(cityName)
                 
+//FORECASTS//
                 var weatherConditions = day[i].weather[0].main
                     console.log(weatherConditions)
                     $("#forecast-"+i).empty().append(weatherConditions)
@@ -76,15 +77,19 @@ function getApi() {
                     console.log(windSpeed)
                     $("#windspeed-"+ i).empty().append(windSpeed)
                     
+//HUMIDITY//
                 var humidity = day[i].main.humidity
                     console.log(humidity)
+                    $("#humidity-"+ i).empty().append(humidity);
+
     
 //ICON//
     
     
-                var icon = day[i].weather[0].icon
-                $("#icon-"+ i).empty().append(icon)
-                console.log(icon)
+                var iconcode = day[i].weather[0].icon
+                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                $("#icon-"+i).attr("src",iconurl)
+                console.log(iconurl)
             }
 
         }

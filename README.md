@@ -1,4 +1,6 @@
-# weather-page
+# weather-page/
+file:///Users/emmacunningham/Desktop/weather/weather-page/index.html
+<img width="1511" alt="Screenshot 2023-02-24 at 3 17 38 PM" src="https://user-images.githubusercontent.com/122828454/221304433-7ef7231c-a3be-4fc7-9a84-5a72937917b0.png">
 
 ## DESCRIPTION
 

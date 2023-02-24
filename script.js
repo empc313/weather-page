@@ -15,6 +15,10 @@ var queryURL =
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
+var windSpeed
+
+
+
 
 function userInputCitySubmit(event) {
   event.preventDefault();
@@ -47,25 +51,37 @@ function getApi() {
       //Current Weather Conditions
       //for Loop iterates through today and the next four days. Provides weatherCondition, temp, windSpeed, and humidity vars for each "card"
         for (var i=0; i<=5; i++){
-            var day = $("#date-"+i)
+            // var day = $("#date-"+i)
             day = data.list
+           
             //we need vars for:
                 //forecast, humidity, wind, temp
             var weatherConditions = day[i].weather[0].main
                 console.log(weatherConditions)
+                $("date-0").append("<p>weatherConditions</p>")
+                console.log("ok")
+                
             var currentTemp = day[i].main.temp
                 console.log(currentTemp)
             var windSpeed = day[i].wind.speed
                 console.log(windSpeed)
+                
             var humidity = day[i].main.humidity
                 console.log(humidity)
 
 
+                $("#windSpeed-"+ i).append(windSpeed)
+
+
+
+
         }
 
-        var test = $("#date-1, #humidity-1")
-        console.log(test)
+        
 
+
+
+       
 
 
 

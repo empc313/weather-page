@@ -1,10 +1,13 @@
 * {
+  color: black;
   font-family: Georgia, "Times New Roman", Times, serif;
-}
-*,
-*::before,
-*::after {
   box-sizing: border-box;
+}
+*::before {
+  font-size: 62.5%;
+}
+
+*::after {
   font-family: "Libre Bodoni", serif;
 }
 
@@ -42,15 +45,25 @@ button:active {
   color: aliceblue;
 }
 button {
-  font-size: 20px;
   cursor: pointer;
   padding: 1px 9px;
   border: none;
 }
 
+#featureCard {
+  margin: 2px;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: whitesmoke;
+  color: blue;
+  background: rgb(199, 225, 234);
+}
+
 .card {
   margin: 2px;
   padding: 2px;
+  width: 100%;
   background-color: whitesmoke;
   color: blue;
   background: rgb(199, 225, 234);
@@ -58,9 +71,8 @@ button {
 
 figure figcaption h1 {
   position: relative;
-  font-size: 110pt;
-  line-height: 110pt;
-  color: white;
+  font-size: 6rem;
+  color: lightskyblue;
   text-shadow: 1px 1px 0px black, 2px 2px 0px rgb(22, 0, 111),
     3px 3px 0px rgb(22, 0, 111);
   font-weight: 700;
@@ -72,7 +84,6 @@ body > header,
 body > header > div {
   background: url("https://picsum.photos/id/872/3840/2160");
   background-size: 100%;
-  background-position: bottom;
   background-attachment: fixed;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;

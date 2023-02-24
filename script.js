@@ -98,10 +98,9 @@ searchBtn.on("click", userInputCitySubmit);
 
 searchBtn.on("click", function (event) {
   event.preventDefault;
-  for (var i = 0; i < 11; i++) {
-    var userSearch = $("#search-input").val();
-    localStorage.setItem("userSearch", userSearch);
-  }
+  var userSearch = $("#search-input").val();
+  localStorage.setItem("userSearch", userSearch);
+  for (var i = 0; i < 11; i++) {}
 });
 // Should we make this into a function that, upon click, will begin the process of grabbing and storing the user search input in local storage?
 

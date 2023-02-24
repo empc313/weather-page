@@ -15,10 +15,7 @@ var queryURL =
 var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
-var windSpeed
-
-
-
+var windSpeed;
 
 function userInputCitySubmit(event) {
   event.preventDefault();
@@ -26,18 +23,16 @@ function userInputCitySubmit(event) {
 
   city = userCityInput;
   queryURL =
-  "https://api.openweathermap.org/data/2.5/forecast?q=" +
-  city +
-  "&units=imperial" +
-  "&exclude=hourly,minutely,alerts" +
-  "&appid=" +
-  APIKey +
-  "&cnt=6";
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&units=imperial" +
+    "&exclude=hourly,minutely,alerts" +
+    "&appid=" +
+    APIKey +
+    "&cnt=6";
 
   getApi();
 }
-
-
 
 function getApi() {
   fetch(queryURL)
@@ -53,50 +48,49 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-                for (var i=0; i<=6; i++){
-            
-                day = data.list
-               
-//CITY//
-                var cityName = data.city.name
-                console.log(cityName)
-                $("#cityname").empty().append(cityName)
-                
-//FORECASTS//
-                var weatherConditions = day[i].weather[0].main
-                    console.log(weatherConditions)
-                    $("#forecast-"+i).empty().append(weatherConditions)
-                    
-                    
-//TEMP//
-                var currentTemp = day[i].main.temp
-                    console.log(currentTemp)
-                    $("#temp-"+i).empty().append(currentTemp)
-//WIND//
-                var windSpeed = day[i].wind.speed
-                    console.log(windSpeed)
-                    $("#windspeed-"+ i).empty().append(windSpeed)
-                    
-//HUMIDITY//
-                var humidity = day[i].main.humidity
-                    console.log(humidity)
-                    $("#humidity-"+ i).empty().append(humidity);
+      for (var i = 0; i <= 6; i++) {
+        day = data.list;
 
-    
-//ICON//
-    
-    
-                var iconcode = day[i].weather[0].icon
-                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-                $("#icon-"+i).attr("src",iconurl)
-                console.log(iconurl)
-            }
+        //CITY//
+        var cityName = data.city.name;
+        console.log(cityName);
+        $("#cityname").empty().append(cityName);
 
-        }
+        //FORECASTS//
+        var weatherConditions = day[i].weather[0].main;
+        console.log(weatherConditions);
+        $("#forecast-" + i)
+          .empty()
+          .append(weatherConditions);
 
+        //TEMP//
+        var currentTemp = day[i].main.temp;
+        console.log(currentTemp);
+        $("#temp-" + i)
+          .empty()
+          .append(currentTemp);
+        //WIND//
+        var windSpeed = day[i].wind.speed;
+        console.log(windSpeed);
+        $("#windspeed-" + i)
+          .empty()
+          .append(windSpeed);
 
+        //HUMIDITY//
+        var humidity = day[i].main.humidity;
+        console.log(humidity);
+        $("#humidity-" + i)
+          .empty()
+          .append(humidity);
 
-    )
+        //ICON//
+
+        var iconcode = day[i].weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        $("#icon-" + i).attr("src", iconurl);
+        console.log(iconurl);
+      }
+    });
 }
 getApi();
 

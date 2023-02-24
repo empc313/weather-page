@@ -150,7 +150,7 @@ function getApi() {
         //DATE//
         var date = day[i].dt_txt
         console.log(date)
-        $("#date-"+i).append(date)
+        $("#date-"+i).empty().append(date)
 
         //TEMP//
         var currentTemp = day[i].main.temp;

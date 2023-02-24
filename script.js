@@ -16,12 +16,18 @@ var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
 var windSpeed;
+var userInfo = [];
+var historyBtn = $("#historyButtons"); //temp variable to reference the div that will contain the dynamically created buttons.
 
-function userInputCitySubmit(event) {
-  event.preventDefault();
-  var userCityInput = $('input[name="city-input"]').val();
+// renderUserSearch();
+
+function userInputCitySubmit(userCityInput) {
+  // event.preventDefault();
+  // var userCityInput = $('input[name="city-input"]').val();
 
   city = userCityInput;
+  userInfo.push(city);
+  localStorage.setItem("userInfo", JSON.stringify(userInfo));
   queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
@@ -33,6 +39,40 @@ function userInputCitySubmit(event) {
 
   getApi();
 }
+
+// continue working on render function
+function renderUserSearch() {
+  var userSearch = localStorage.getItem("userInfo");
+  if (userSearch) {
+    userInfo = JSON.parse(userSearch);
+    for (var i = 0; i < userInfo.length; i++) {
+      var city = userInfo[i];
+      createButton(city);
+      // var btn = $("<button>");
+      // btn.addClass("btnHistory btn btn-secondary col-12 my-1");
+      // btn.text(city);
+      // historyBtn.append(btn);
+    }
+  }
+  // console.log(userSearch);
+}
+
+function createButton(city) {
+  var btn = $("<button>");
+  btn.addClass("btnHistory btn btn-secondary col-12 my-1");
+  btn.text(city);
+  historyBtn.append(btn);
+  $(".btnHistory").on("click", function (event) {
+    event.preventDefault();
+    // var userSearch = $("#search-input").val();
+    var userCityInput = event.target.innerText;
+    userInputCitySubmit(userCityInput);
+  });
+}
+//
+//
+//
+//
 
 function getApi() {
   fetch(queryURL)
@@ -93,5 +133,37 @@ function getApi() {
     });
 }
 getApi();
+renderUserSearch();
 
-searchBtn.on("click", userInputCitySubmit);
+// searchBtn.on("click", userInputCitySubmit); // this is current working button.
+
+//currently setup so userInputCitySubmit fires off on click still but also stores item in localStorage
+searchBtn.on("click", function (event) {
+  event.preventDefault();
+  // var userSearch = $("#search-input").val();
+  var userCityInput = $('input[name="city-input"]').val();
+  userInputCitySubmit(userCityInput);
+  createButton(userCityInput);
+  // localStorage.setItem("userSearch", JSON.stringify(userSearch));
+  // if (userSearch === "") {
+  //   alert("Search Criteria Undefined, Please Specify City Name");
+  // }
+
+  // var data = {
+  //   userSearch: $("#search-input").val(),
+  // };
+  // localStorage.setItem("data", JSON.stringify(data));
+  // for (var i = 0; i < 11; i++) {}
+  // });
+  // Should we make this into a function that, upon click, will begin the process of grabbing and storing the user search input in local storage?
+
+  // searchBtn.on("click", function (event) {
+  //   event.preventDefault();
+  //   var userSearch = $("#search-input").val();
+  //   console.log(userSearch);
+  //   localStorage.setItem("userSearch", userSearch);
+  //   userInputCitySubmit(); //Except this function can't be read in the console, why?
+  //  ^^^^^THIS WORKS^^^^^
+  //
+  //
+});

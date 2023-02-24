@@ -26,7 +26,7 @@ function userInputCitySubmit(event) {
   "https://api.openweathermap.org/data/2.5/forecast?q=" +
   city +
   "&units=imperial" +
-  "&exclude=hourly,minutely,alerts" +
+  "&exclude=current,hourly,minutely,alerts" +
   "&appid=" +
   APIKey 
 
@@ -48,42 +48,48 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-      for (var i = 0; i <= 6; i++) {
+      for (var i = 0; i <= 40; i=i+5) {
         day = data.list;
 
-        //CITY//
+//CITY//
         var cityName = data.city.name;
         console.log(cityName);
         $("#cityname").empty().append(cityName);
 
-        //FORECASTS//
+//FORECASTS//
         var weatherConditions = day[i].weather[0].main;
         console.log(weatherConditions);
         $("#forecast-" + i)
           .empty()
           .append(weatherConditions);
 
-        //TEMP//
+//DATE//
+        var date = day[i].dt_txt;
+        console.log(date)
+        $("#date-"+i).empty().append(date)
+       
+
+//TEMP//
         var currentTemp = day[i].main.temp;
         console.log(currentTemp);
         $("#temp-" + i)
           .empty()
-          .append(currentTemp);
-        //WIND//
+          .append(currentTemp+"°");
+//WIND//
         var windSpeed = day[i].wind.speed;
         console.log(windSpeed);
         $("#windspeed-" + i)
           .empty()
-          .append(windSpeed);
+          .append(windSpeed+"mph");
 
-        //HUMIDITY//
+//HUMIDITY//
         var humidity = day[i].main.humidity;
         console.log(humidity);
         $("#humidity-" + i)
           .empty()
-          .append(humidity);
+          .append(humidity+"%");
 
-        //ICON//
+//ICON//
 
         var iconcode = day[i].weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";

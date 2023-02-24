@@ -4,24 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
     />
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
-    rel="stylesheet" /> -->
     <link rel="stylesheet" href="./style.css"/>
-    <!-- <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"
-></script> -->
   </head>
 
   <body>
+    <!-- header  -->
 <header>
   <nav><figure>
     <figcaption>
@@ -29,7 +21,9 @@
     </figcaption>
   </figure></nav>
 </header>
-    <article>
+    <!-- ******** -->
+
+    <!-- main  -->
     <main class="container-fluid">
       <div class="mt-3">
         <div class="row input-group flex-nowrap">
@@ -65,27 +59,32 @@
               </button>
             </div>
           </div>
-          <div class="offset-1 col-7 border weatherConditionsContainer">
+          <!-- container with data  -->
+          <div class="offset-1 col-7 border container">
+            <!-- current weather  -->
             <div class="row">
               <h2 class="col-12" id="cityname">This will be city name</h2>
               <div id="date-0">
+                <img id="icon-0" src=""></img>
                 <p id="forecast-0">Current Conditions:</p>
-                  <img id="icon-0" src=""></img>
                 <p id="temp-0">Temp:</p>
                 <p id="windspeed-0">Wind Speed:</p>
                 <p id="humidity-0">Humidity</p>
               </div>
             </div>
+            <!-- ******** -->
+
+            <!-- future weather cards  -->
             <div class="row">
               <div class="row g-4 justify-content-around">
                 <div class="col-2 mb-4">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-1">Date</h5>
+                      <img id="icon-1" src=""></img>
                         <p id="forecast-1">
                         
                         </p>
-                        <img id="icon-1" src=""></img>
                         <p id="temp-1">Temp:</p>
                         <p id="windspeed-1">Windspeed:</p>
                         <p id="humidity-1">Humidity:</p>
@@ -96,10 +95,10 @@
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-2">Date</h5>
+                      <img id="icon-2" src=""></img>
                       <p id="forecast-2">
                         Forecast:
                       </p>
-                      <img id="icon-2" src=""></img>
                       <p id="temp-2">Temp:</p>
                       <p id="windspeed-2">Windspeed:</p>
                       <p id="humidity-2">Humidity:</p>
@@ -110,10 +109,10 @@
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-3">Date</h5>
+                      <img id="icon-3" src=""></img>
                       <p id="forecast-3">
                         Forecast:
                       </p>
-                      <img id="icon-3" src=""></img>
                       <p id="temp-3">Temp:</p>
                       <p id="windspeed-3">Windspeed:</p>
                       <p id="humidity-3">Humidity:</p>
@@ -124,10 +123,10 @@
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-4">Date</h5>
+                      <img id="icon-4" src=""></img>
                       <p id="forecast-4">
                         Forecast:
                       </p>
-                      <img id="icon-4" src=""></img>
                       <p id="temp-4">Temp:</p>
                       <p id="windspeed-4">Windspeed:</p>
                       <p id="humidity-4">Humidity:</p>
@@ -138,10 +137,10 @@
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-5">Date</h5>
+                      <img id="icon-5" src=""></img>
                       <p id="forecast-5">
                         Forecast:
                       </p>
-                      <img id="icon-5" src=""></img>
                       <p id="temp-5">Temp:</p>
                       <p id="windspeed-5">Windspeed:</p>
                       <p id="humidity-5">Humidity:</p>
@@ -150,42 +149,17 @@
                 </div>
               </div>
             </div>
+            <!-- ******** -->
           </div>
+          <!-- ******** -->
         </div>
       </div>
     </main>
+    <!-- ******** -->
 
-    
-    
-    
-    
-    
-    
-    
-  </div> 
+    <!-- script reference  -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./script.js"></script>
-    <!-- <script src="./script.js"></script> -->
+    <!-- ******** -->
   </body>
 </html>
-
-  <!-- <div class="container">
-    <h1 class="header-bar">Weather Dashboard</h1>
-</div>
-
-
-    <form id="search-form" class="form w-100">
-      <input id="search-input" class="form-input w-100" type="text" placeholder="City" name="city-input">
-      <button class="btn btn-info btn-block">Search</button>
-    </form>
-  </div>
-
-  <div class="weatherConditionsContainer">
-    <h2>Weather Conditions</h2>
-      <h3 id="weatherConditions"></h3>
-      <figure class="icon"></figure>
-    <h3 id="subDescription"></h3>
-
-  </div>
-
-  

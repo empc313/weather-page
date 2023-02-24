@@ -61,27 +61,27 @@ function getApi() {
         console.log(weatherConditions);
         $("#forecast-" + i)
           .empty()
-          .append(weatherConditions);
+          .append("Forecast: " + weatherConditions);
 
         //TEMP//
         var currentTemp = day[i].main.temp;
         console.log(currentTemp);
         $("#temp-" + i)
           .empty()
-          .append(currentTemp);
+          .append("Temperature: " + currentTemp + " F");
         //WIND//
         var windSpeed = day[i].wind.speed;
         console.log(windSpeed);
         $("#windspeed-" + i)
           .empty()
-          .append(windSpeed);
+          .append("Wind Speed: " + windSpeed + " mph");
 
         //HUMIDITY//
         var humidity = day[i].main.humidity;
         console.log(humidity);
         $("#humidity-" + i)
           .empty()
-          .append(humidity);
+          .append("Humidity: " + humidity + "%");
 
         //ICON//
 

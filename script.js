@@ -87,7 +87,27 @@ function getApiForCurrentWeather(){
     })
     .then(function (data) {
         console.log(data);
+        var currentConditions = data.weather[0].description
+        console.log(currentConditions)
+        $("#forecast-main").empty().append("Weather:"+ currentConditions)
+
+        var temp = data.main.temp
+        console.log(temp)
+        $("#temp-main").empty().append("Temp:"+temp)
+
+        var windSpeed = data.wind.speed
+        console.log(windSpeed)
+        $("#wind-main").empty().append("Wind Speed:" + windSpeed)
+
+        var humidity = data.main.humidity
+        console.log(humidity)
+        $("#humidity-main").empty().append("Humidity:" + humidity)
+
+        var iconcode = data.weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        $("#icon-main").attr("src", iconurl);
     })
+
 }
 getApiForCurrentWeather()
 

@@ -24,8 +24,9 @@ body {
 button {
   font-style: oblique;
   padding: 1px;
-  --c: aliceblue;
-  box-shadow: 0 0 0 3px inset var(--c);
+  --c: green;
+  --c2: aliceblue;
+  box-shadow: 0 0 0 3px inset var(--c2);
   --_g: linear-gradient(var(--c) 0 0) no-repeat;
   background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
     var(--_g) calc(200% - var(--_p, 0%)) 0%,

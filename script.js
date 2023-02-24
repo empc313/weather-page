@@ -6,7 +6,7 @@ var searchEl = $("#search-form");
 var searchBtn = $("#search-button");
 var queryURL =
   "https://api.openweathermap.org/data/2.5/forecast?q=" +
-  city +
+   city +
   "&units=imperial" +
   "&exclude=current,hourly,minutely,alerts" +
   "&appid=" +
@@ -46,8 +46,14 @@ function getApi() {
       console.log(data);
 
       //Current Weather Conditions
-      for (var i = 0; i <= 40; i++) {
-        day = data.list;
+      var filteredDayList = data.list.filter(function(obj){
+        return obj.dt_txt.split(" ")[1] === "12:00:00"
+      })
+      console.log(filteredDayList)
+      for (var i = 0; i < filteredDayList.length; i++) {
+        // for (var i = 0; i <= 40; i=i+8) {
+       // day = data.list;
+        day = filteredDayList;
 
         //CITY//
         var cityName = data.city.name;
@@ -60,6 +66,12 @@ function getApi() {
         $("#forecast-" + i)
           .empty()
           .append("Forecast: " + weatherConditions);
+        console.log("item number:" +i)
+        
+        //DATE//
+        var date = day[i].dt_txt
+        console.log(date)
+        $("#date-"+i).append(date)
 
         //TEMP//
         var currentTemp = day[i].main.temp;

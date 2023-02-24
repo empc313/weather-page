@@ -79,9 +79,12 @@ function getApi() {
             var humidity = day[i].main.humidity
                 console.log(humidity)
 
+//ICON//
 
 
-                
+            var icon = day[i].weather[0].icon
+            $("#icon-"+ i).empty().append(icon)
+            console.log(icon)
 
 
         }

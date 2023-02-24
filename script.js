@@ -16,6 +16,9 @@ var weatherEl = $("#weatherConditions");
 var subMainWeatherEl = $("#subDescription");
 var icon = $(".icon");
 var windSpeed;
+// var historyBtn = $("#historyButtons"); //temp variable to reference the div that will contain the dynamically created buttons.
+
+renderUserSearch();
 
 function userInputCitySubmit(event) {
   event.preventDefault();
@@ -33,6 +36,21 @@ function userInputCitySubmit(event) {
 
   getApi();
 }
+
+// continue working on render function
+// function renderUserSearch() {
+//   var userSearch = localStorage.getItem("userSearch");
+//   // console.log(userSearch);
+//   var btn = document.createElement("button");
+
+//   btn.textContent = userSearch;
+
+//   historyBtn.appendChild(btn);
+// }
+//
+//
+//
+//
 
 function getApi() {
   fetch(queryURL)
@@ -94,14 +112,22 @@ function getApi() {
 }
 getApi();
 
-searchBtn.on("click", userInputCitySubmit);
+searchBtn.on("click", userInputCitySubmit); // this is current working button.
 
-searchBtn.on("click", function (event) {
-  event.preventDefault;
-  var userSearch = $("#search-input").val();
-  localStorage.setItem("userSearch", userSearch);
-  for (var i = 0; i < 11; i++) {}
-});
+//currently setup so userInputCitySubmit fires off on click still but also stores item in localStorage
+// searchBtn.on("click", function (event) {
+//   event.preventDefault();
+//   var userSearch = $("#search-input").val();
+//   localStorage.setItem("userSearch", JSON.stringify(userSearch));
+//   if (userSearch === "") {
+//     alert("Search Criteria Undefined, Please Specify City Name");
+//   }
+// var data = {
+//   userSearch: $("#search-input").val(),
+// };
+// localStorage.setItem("data", JSON.stringify(data));
+// for (var i = 0; i < 11; i++) {}
+// });
 // Should we make this into a function that, upon click, will begin the process of grabbing and storing the user search input in local storage?
 
 // searchBtn.on("click", function (event) {

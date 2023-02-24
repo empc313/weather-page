@@ -26,8 +26,10 @@
     <!-- main  -->
     <main class="container-fluid">
       <div class="mt-3">
-        <div class="row input-group flex-nowrap">
+        <div class="row input-group">
+          <!-- LEFT Sidebar  -->
           <div class="row col-3">
+            <!-- search form  -->
             <div id="search-form">
               <input
                 type="text"
@@ -47,6 +49,9 @@
               </button>
               <hr />
             </div>
+            <!-- ******** -->
+
+            <!-- history section  -->
             <div id="historyButtons">
               <button type="button" class="btn btn-secondary col-12 my-1">
                 City
@@ -58,9 +63,13 @@
                 City
               </button>
             </div>
+            <!-- ******** -->
+
           </div>
+          <!-- ******** -->
+
           <!-- container with data  -->
-          <div class="offset-1 col-7 border container">
+          <div class="offset-1 col-9 border container">
             <!-- current weather  -->
             <div class="row">
               <h2 class="col-12" id="cityname">This will be city name</h2>
@@ -76,8 +85,8 @@
 
             <!-- future weather cards  -->
             <div class="row">
-              <div class="row g-4 justify-content-around">
-                <div class="col-2 mb-4">
+              <div class="row g-4 justify-content-left">
+                <div class="col-6 mb-4">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-1">Date</h5>
@@ -91,7 +100,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-2">
+                <div class="col-6">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-2">Date</h5>
@@ -105,7 +114,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-2">
+                <div class="col-6">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-3">Date</h5>
@@ -119,7 +128,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-2">
+                <div class="col-6">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-4">Date</h5>
@@ -133,7 +142,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-2">
+                <div class="col-6">
                   <div class="card">
                     <div class="card-body">
                       <h5 id="date-5">Date</h5>
@@ -152,6 +161,7 @@
             <!-- ******** -->
           </div>
           <!-- ******** -->
+
         </div>
       </div>
     </main>

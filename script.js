@@ -72,6 +72,25 @@ function createButton(city) {
 //
 //
 
+//WEATHER NOW//
+function getApiForCurrentWeather(){
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial"+"&exclude=current,hourly,minutely,alerts" +
+    "&appid=" +
+    APIKey)
+    .then(function (response) {
+        console.log(response.status);
+        if (response.status == 404) {
+            var errorDisplay = response.status;
+            console.log(errorDisplay)
+        }
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+}
+getApiForCurrentWeather()
+
 function getApi() {
   fetch(queryURL)
     .then(function (response) {

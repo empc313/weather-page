@@ -93,15 +93,15 @@ function getApiForCurrentWeather(){
 
         var temp = data.main.temp
         console.log(temp)
-        $("#temp-main").empty().append("Temp:"+temp)
+        $("#temp-main").empty().append("Temp:"+temp+"°")
 
         var windSpeed = data.wind.speed
         console.log(windSpeed)
-        $("#wind-main").empty().append("Wind Speed:" + windSpeed)
+        $("#wind-main").empty().append("Wind Speed:" + windSpeed+"mph")
 
         var humidity = data.main.humidity
         console.log(humidity)
-        $("#humidity-main").empty().append("Humidity:" + humidity)
+        $("#humidity-main").empty().append("Humidity:" + humidity+"%")
 
         var iconcode = data.weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
